@@ -17,14 +17,24 @@
         --line: #d5cec0;
       }
       * { box-sizing: border-box; }
+      html { overflow-x: hidden; }
       body {
         margin: 0;
         color: var(--ink);
         background: var(--paper);
         font-family: Inter, "Helvetica Neue", Arial, sans-serif;
         line-height: 1.7;
+        overflow-x: hidden;
       }
       img { display: block; max-width: 100%; }
+      .wrap, .grid > *, .twocol > *, .threecol > *, .author-card > *, .rs-cards > *, .cards > *, .question > * {
+        min-width: 0;
+      }
+      h1, h2, h3, p, blockquote, .subhead, .owner-question, .question, .analysis-cta, .analysis-cta * {
+        overflow-wrap: break-word;
+        word-break: normal;
+        hyphens: auto;
+      }
       a { color: inherit; text-decoration: none; }
       .zip-img {
         background: linear-gradient(135deg, rgba(245, 241, 233, .85), rgba(38, 55, 70, .22));
@@ -421,8 +431,20 @@
         .author-portrait { width: min(180px, 54vw); }
       }
       @media (max-width: 560px) {
+        .nav, .wrap { width: min(100% - 28px, 1240px); }
         .cards { grid-template-columns: 1fr; }
         .nav .meta { display: none; }
+        .hero { min-height: 78vh; }
+        .hero-content { padding: 126px 0 42px; }
+        h1 { font-size: clamp(42px, 15vw, 58px); line-height: 1; }
+        h2 { font-size: clamp(31px, 10vw, 42px); line-height: 1.08; }
+        .author-copy h2, .intro-section h2, .rs-section h2 { font-size: clamp(27px, 8.5vw, 36px); }
+        .subhead { font-size: clamp(21px, 6.4vw, 27px); }
+        .owner-question { padding-left: 14px; font-size: clamp(21px, 6.5vw, 27px); }
+        blockquote { padding-left: 18px; font-size: clamp(26px, 8vw, 36px); }
+        .question { gap: 10px; font-size: clamp(25px, 7.4vw, 34px); }
+        .panel, .rs-card, .card { padding: 26px; }
+        .analysis-cta { width: 100%; padding: 24px 22px; }
         section { padding: 64px 0; }
       }
     </style>
