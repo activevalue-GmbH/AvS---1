@@ -288,6 +288,30 @@
         max-width: 360px;
         color: rgba(245,241,233,.72);
       }
+      .section-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 34px;
+      }
+      .section-actions a {
+        min-height: 52px;
+        padding: 13px 22px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--ink);
+        font-weight: 600;
+      }
+      .section-actions .primary-action {
+        color: var(--paper);
+        background: var(--burgundy);
+        border-color: var(--burgundy);
+      }
+      .section-actions .secondary-action {
+        color: var(--ink);
+        background: transparent;
+      }
       footer {
         padding: 44px 0;
         color: rgba(245,241,233,.65);
@@ -418,6 +442,10 @@
           <div>
             <h2>AvS Advisors begleitet Eigentümer, Familienunternehmen, Beiräte und Top-Management bei Führungs-, Nachfolge- und Governance-Fragen.</h2>
             <p>Die Analyse von Rohde &amp; Schwarz ist keine Marktstudie. Sie ist ein Beispiel dafür, wie sich neue Marktbedingungen auf Eigentümerentscheidungen, Führungsanforderungen und langfristige Unternehmensentwicklung auswirken können.</p>
+            <div class="section-actions">
+              <a class="primary-action" href="mailto:a.borcke@avs-advisors.com">Vertrauliches Gespräch vereinbaren</a>
+              <a class="secondary-action" href="mailto:a.borcke@avs-advisors.com">Vollständige Analyse erhalten</a>
+            </div>
           </div>
         </div>
       </section>
