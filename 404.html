@@ -1,0 +1,641 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Venture Capital oder Eigentümerkontrolle? | AvS Advisors</title>
+    <meta name="description" content="Eine Eigentümerperspektive aus der Betrachtung von Rohde & Schwarz: Welche Fähigkeiten müssen familiengeführte Technologieunternehmen aufbauen, damit ihre heutigen Stärken Wettbewerbsvorteile bleiben?" />
+    <style>
+      :root {
+        --paper: #f5f1e9;
+        --ink: #171717;
+        --graphite: #262b2d;
+        --slateblue: #263746;
+        --pine: #17362d;
+        --burgundy: #4c1f2f;
+        --brass: #9a6b2f;
+        --line: #d5cec0;
+      }
+      * { box-sizing: border-box; }
+      html { overflow-x: hidden; }
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: var(--paper);
+        font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.7;
+        overflow-x: hidden;
+      }
+      img { display: block; max-width: 100%; }
+      .wrap, .grid > *, .twocol > *, .threecol > *, .author-card > *, .rs-cards > *, .cards > *, .question > * {
+        min-width: 0;
+      }
+      h1, h2, h3, p, blockquote, .subhead, .owner-question, .question, .analysis-cta, .analysis-cta * {
+        overflow-wrap: break-word;
+        word-break: normal;
+        hyphens: auto;
+      }
+      a { color: inherit; text-decoration: none; }
+      .zip-img {
+        background: linear-gradient(135deg, rgba(245, 241, 233, .85), rgba(38, 55, 70, .22));
+      }
+      .hero {
+        position: relative;
+        min-height: 88vh;
+        overflow: hidden;
+        display: flex;
+        align-items: flex-end;
+      }
+      .hero img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg, rgba(245,241,233,.96), rgba(245,241,233,.84) 32%, rgba(245,241,233,.2) 66%);
+      }
+      header {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        right: 0;
+        border-bottom: 1px solid rgba(23,23,23,.12);
+      }
+      .nav, .wrap {
+        width: min(100% - 40px, 1240px);
+        margin: 0 auto;
+      }
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+        font-size: 12px;
+        letter-spacing: .18em;
+        text-transform: uppercase;
+      }
+      .brand {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+      }
+      .mark {
+        width: 44px;
+        height: 44px;
+        border: 1px solid rgba(23,23,23,.45);
+        display: grid;
+        place-items: center;
+        font-family: Georgia, serif;
+        font-size: 20px;
+        letter-spacing: 0;
+        text-transform: none;
+      }
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        padding: 150px 0 56px;
+      }
+      .kicker, .label, .meta {
+        font-size: 11px;
+        letter-spacing: .22em;
+        text-transform: uppercase;
+        color: var(--brass);
+      }
+      h1, h2, h3, blockquote {
+        font-family: Georgia, "Times New Roman", serif;
+        font-weight: 400;
+        letter-spacing: 0;
+      }
+      h1 {
+        max-width: 860px;
+        margin: 28px 0 28px;
+        font-size: clamp(52px, 9vw, 116px);
+        line-height: .98;
+      }
+      .subhead {
+        max-width: 700px;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(24px, 3vw, 34px);
+        line-height: 1.25;
+        color: var(--graphite);
+      }
+      section {
+        padding: 84px 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: .8fr 1.45fr;
+        gap: 56px;
+      }
+      h2 {
+        margin: 0;
+        max-width: 900px;
+        font-size: clamp(38px, 5vw, 68px);
+        line-height: 1.08;
+      }
+      .twocol {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1px;
+        margin-top: 48px;
+        border: 1px solid var(--line);
+        background: var(--line);
+      }
+      .threecol {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1px;
+        margin-top: 48px;
+        border: 1px solid var(--line);
+        background: var(--line);
+      }
+      .panel {
+        min-height: 340px;
+        padding: 42px;
+        background: #fbfaf6;
+      }
+      .intro-section h2 {
+        max-width: 760px;
+        font-size: clamp(32px, 3.4vw, 52px);
+        line-height: 1.14;
+      }
+      .intro-section p {
+        max-width: 760px;
+      }
+      .intro-section .threecol {
+        margin-top: 38px;
+      }
+      .intro-section .panel {
+        min-height: 220px;
+        padding: 34px;
+      }
+      .panel ul {
+        margin: 34px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+      .panel li {
+        padding: 13px 0;
+        border-top: 1px solid var(--line);
+      }
+      .author-section {
+        background: #fbfaf6;
+        padding: 56px 0 64px;
+      }
+      .author-card {
+        display: grid;
+        grid-template-columns: 190px 1fr;
+        gap: 36px;
+        align-items: start;
+        max-width: 980px;
+      }
+      .author-portrait {
+        aspect-ratio: 4 / 5;
+        margin: 0;
+        overflow: hidden;
+        background: #d9d7d0;
+        border: 1px solid var(--line);
+        box-shadow: 0 16px 42px rgba(23,23,23,.12);
+      }
+      .author-portrait img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 50% 14%;
+      }
+      .author-copy {
+        padding: 0;
+      }
+      .author-copy h2 {
+        max-width: 680px;
+        margin-top: 12px;
+        font-size: clamp(26px, 2.6vw, 38px);
+        line-height: 1.12;
+      }
+      .rs-section h2 {
+        max-width: 860px;
+        font-size: clamp(34px, 4vw, 58px);
+        line-height: 1.08;
+      }
+      .author-copy p {
+        max-width: 720px;
+        margin: 14px 0 0;
+      }
+      .rs-section p {
+        max-width: 820px;
+      }
+      .owner-question {
+        margin: 22px 0;
+        padding-left: 20px;
+        border-left: 1px solid var(--brass);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(22px, 2.2vw, 32px);
+        line-height: 1.2;
+      }
+      .signature {
+        margin-top: 22px;
+        padding-top: 18px;
+        border-top: 1px solid var(--line);
+      }
+      .signature strong {
+        display: block;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 22px;
+        font-weight: 400;
+      }
+      .signature span {
+        display: block;
+        margin-top: 4px;
+        color: var(--graphite);
+      }
+      .rs-section {
+        background: var(--paper);
+      }
+      .rs-cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1px;
+        margin-top: 42px;
+        border: 1px solid var(--line);
+        background: var(--line);
+      }
+      .rs-card {
+        min-height: 230px;
+        padding: 34px;
+        background: #fbfaf6;
+      }
+      .rs-card h3 {
+        margin-top: 32px;
+        color: var(--brass);
+      }
+      .rs-close {
+        margin-top: 34px;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(26px, 3vw, 40px);
+        line-height: 1.16;
+      }
+      .dark {
+        color: var(--paper);
+        background: var(--ink);
+      }
+      .dark .label { color: var(--brass); }
+      .dark p { color: rgba(245,241,233,.72); }
+      .figure {
+        margin: 52px 0 0;
+      }
+      .figure img {
+        width: 100%;
+        border: 1px solid rgba(255,255,255,.12);
+      }
+      blockquote {
+        margin: 56px 0 0;
+        padding-left: 32px;
+        border-left: 1px solid var(--brass);
+        font-size: clamp(30px, 4vw, 54px);
+        line-height: 1.08;
+      }
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1px;
+        margin-top: 48px;
+        border: 1px solid var(--line);
+        background: var(--line);
+      }
+      .card {
+        min-height: 210px;
+        padding: 28px;
+        background: #fbfaf6;
+      }
+      .card h3 {
+        color: var(--brass);
+      }
+      .question {
+        display: grid;
+        grid-template-columns: 80px 1fr;
+        gap: 24px;
+        padding: 30px 0;
+        border-top: 1px solid var(--line);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(28px, 3vw, 42px);
+        line-height: 1.12;
+      }
+      .cover-img {
+        margin: 36px 0 0;
+        border: 1px solid var(--line);
+        box-shadow: 0 28px 72px rgba(23,23,23,.16), 0 8px 18px rgba(23,23,23,.08);
+      }
+      .analysis-cover img {
+        border: 1px solid var(--line);
+        box-shadow: 0 28px 72px rgba(23,23,23,.16), 0 8px 18px rgba(23,23,23,.08);
+      }
+      .cta {
+        background: #2a2824;
+        color: var(--paper);
+      }
+      .buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 34px;
+      }
+      .button {
+        min-height: 48px;
+        padding: 12px 22px;
+        border: 1px solid rgba(245,241,233,.45);
+        display: inline-flex;
+        align-items: center;
+      }
+      .button.primary {
+        background: var(--paper);
+        color: var(--ink);
+      }
+      .analysis-cta {
+        display: block;
+        margin-top: 28px;
+        max-width: 520px;
+        padding: 26px 28px;
+        color: var(--paper);
+        background: var(--burgundy);
+        border: 1px solid rgba(76,31,47,.9);
+        box-shadow: 0 22px 54px rgba(76,31,47,.16);
+        transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
+      }
+      .analysis-cta:hover {
+        transform: translateY(-2px);
+        background: #5a2638;
+        box-shadow: 0 28px 70px rgba(76,31,47,.22);
+      }
+      .analysis-cta .eyebrow {
+        display: block;
+        margin-bottom: 18px;
+        font-size: 11px;
+        letter-spacing: .2em;
+        text-transform: uppercase;
+        color: rgba(245,241,233,.68);
+      }
+      .analysis-cta strong {
+        display: block;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(25px, 2.4vw, 34px);
+        font-weight: 400;
+        line-height: 1.12;
+      }
+      .analysis-cta .hint {
+        display: block;
+        margin-top: 16px;
+        max-width: 360px;
+        color: rgba(245,241,233,.72);
+      }
+      .section-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 34px;
+      }
+      .section-actions a {
+        min-height: 52px;
+        padding: 13px 22px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--ink);
+        font-weight: 600;
+      }
+      .section-actions .primary-action {
+        color: var(--paper);
+        background: var(--burgundy);
+        border-color: var(--burgundy);
+      }
+      .section-actions .secondary-action {
+        color: var(--ink);
+        background: transparent;
+      }
+      footer {
+        padding: 44px 0;
+        color: rgba(245,241,233,.65);
+        background: var(--ink);
+      }
+      @media (max-width: 800px) {
+        .grid, .twocol, .threecol, .author-card, .rs-cards, .cards, .question { grid-template-columns: 1fr; }
+        .cards { grid-template-columns: 1fr 1fr; }
+        .nav { align-items: flex-start; gap: 20px; }
+        .author-card { gap: 24px; }
+        .author-portrait { width: min(180px, 54vw); }
+      }
+      @media (max-width: 560px) {
+        .nav, .wrap { width: min(100% - 28px, 1240px); }
+        .cards { grid-template-columns: 1fr; }
+        .nav .meta { display: none; }
+        .hero { min-height: 78vh; }
+        .hero-content { padding: 126px 0 42px; }
+        h1 { font-size: clamp(42px, 15vw, 58px); line-height: 1; }
+        h2 { font-size: clamp(31px, 10vw, 42px); line-height: 1.08; }
+        .author-copy h2, .intro-section h2, .rs-section h2 { font-size: clamp(27px, 8.5vw, 36px); }
+        .subhead { font-size: clamp(21px, 6.4vw, 27px); }
+        .owner-question { padding-left: 14px; font-size: clamp(21px, 6.5vw, 27px); }
+        blockquote { padding-left: 18px; font-size: clamp(26px, 8vw, 36px); }
+        .question { gap: 10px; font-size: clamp(25px, 7.4vw, 34px); }
+        .panel, .rs-card, .card { padding: 26px; }
+        .analysis-cta { width: 100%; padding: 24px 22px; }
+        section { padding: 64px 0; }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="hero">
+        <img src="./01_control_layers_the_race_hero.png?v=restore-20260605" alt="Editorial-Hero einer AvS Advisors Eigentümer- und Governance-Publikation" />
+        <header>
+          <div class="nav">
+            <div class="brand"><span class="mark">AvS</span><span>AvS Advisors<br />Publications</span></div>
+            <div class="meta">Strategic Briefing</div>
+          </div>
+        </header>
+        <div class="wrap hero-content">
+          <div class="kicker">Eine Eigentümerperspektive aus der Betrachtung von Rohde &amp; Schwarz.</div>
+          <h1>Venture Capital oder Eigentümerkontrolle?</h1>
+          <div class="subhead">Welche Fähigkeiten müssen familiengeführte Technologieunternehmen aufbauen, damit ihre heutigen Stärken auch in der nächsten Phase des Defence-Marktes Wettbewerbsvorteile bleiben?</div>
+        </div>
+      </section>
+
+      <section class="author-section">
+        <div class="wrap author-card">
+          <figure class="author-portrait">
+            <img src="./AvS_Advisors_Antonius-von-Borcke_editorial_bw_clean.png?v=restore-20260605" alt="Antonius von Borcke, Partner bei AvS Advisors" />
+          </figure>
+          <div class="author-copy">
+            <div class="label">AvS Advisors Perspektive</div>
+            <h2>WARUM WIR UNS MIT ROHDE &amp; SCHWARZ BESCHÄFTIGT HABEN</h2>
+            <p>Als Berater von Eigentümerfamilien, Familienunternehmen und Beiräten beschäftigen wir uns normalerweise mit Führung, Nachfolge und Governance.</p>
+            <p>Bei unserer Beschäftigung mit Rohde &amp; Schwarz sind wir auf eine Frage gestoßen, die aus unserer Sicht weit über den Defence-Markt hinausreicht.</p>
+            <p>Während neue Wettbewerber wie Helsing oder Anduril mit Venture Capital, hoher Geschwindigkeit und softwarezentrierten Geschäftsmodellen wachsen, verfügt Rohde &amp; Schwarz über andere Stärken: langfristige Eigentümerkontrolle, technologische Tiefe, Vertrauen und industrielle Substanz.</p>
+            <p>Daraus entstand für uns eine Eigentümerfrage:</p>
+            <div class="owner-question">"Welche Fähigkeiten müssen familiengeführte Technologieunternehmen heute aufbauen, damit ihre traditionellen Stärken auch in der nächsten Marktphase Wettbewerbsvorteile bleiben?"</div>
+            <p>Die folgenden Gedanken sind der Versuch, dieser Frage nachzugehen.</p>
+            <div class="signature">
+              <strong>Antonius von Borcke</strong>
+              <span>Partner, AvS Advisors</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="intro-section">
+        <div class="wrap grid">
+          <div class="label">Warum diese Frage Eigentümer betrifft</div>
+          <div>
+            <h2>Die öffentliche Diskussion konzentriert sich häufig auf Kapital, KI und neue Wettbewerber.</h2>
+            <p>Für Eigentümerfamilien, Beiräte und Geschäftsführungen entsteht jedoch eine andere Frage: Wie müssen Führung, Governance und Organisationsfähigkeit weiterentwickelt werden, damit langfristige Stärken auch unter neuen Marktbedingungen Wettbewerbsvorteile bleiben?</p>
+            <div class="threecol">
+              <div class="panel"><div class="label">01</div><h3>Führung</h3></div>
+              <div class="panel"><div class="label">02</div><h3>Governance</h3></div>
+              <div class="panel"><div class="label">03</div><h3>Nachfolgefähigkeit</h3></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="rs-section">
+        <div class="wrap">
+          <div class="label">Rohde &amp; Schwarz als Ausgangspunkt</div>
+          <h2>WAS ROHDE &amp; SCHWARZ INTERESSANT MACHT</h2>
+          <p>Rohde &amp; Schwarz ist nicht deshalb interessant, weil das Unternehmen exemplarisch für den Defence-Markt steht.</p>
+          <p>Rohde &amp; Schwarz ist interessant, weil hier mehrere Eigenschaften zusammenkommen, die für viele familiengeführte Technologieunternehmen relevant werden könnten.</p>
+          <p>Gerade die Kombination aus Eigentümerkontrolle, technologischer Tiefe und strategischer Relevanz macht das Unternehmen zu einem interessanten Ausgangspunkt für eine größere Eigentümerfrage.</p>
+          <div class="rs-cards">
+            <div class="rs-card">
+              <div class="label">01</div>
+              <h3>LANGFRISTIGE EIGENTÜMERKONTROLLE</h3>
+              <p>Eines der wenigen europäischen Technologieunternehmen mit langfristiger Unabhängigkeit und Eigentümerkontrolle.</p>
+            </div>
+            <div class="rs-card">
+              <div class="label">02</div>
+              <h3>TECHNOLOGISCHE TIEFE</h3>
+              <p>Kompetenzen und Marktpositionen, die nicht kurzfristig replizierbar sind.</p>
+            </div>
+            <div class="rs-card">
+              <div class="label">03</div>
+              <h3>STRATEGISCHE RELEVANZ</h3>
+              <p>Aktive Rolle in einem Markt, der durch KI, Software und geopolitische Veränderungen neu definiert wird.</p>
+            </div>
+          </div>
+          <p class="rs-close">Gerade deshalb eignet sich Rohde &amp; Schwarz als Ausgangspunkt für eine größere Eigentümerfrage.</p>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap">
+          <div class="label">Die beiden Modelle</div>
+          <h2>Nicht Kapital gegen Tradition. Sondern Geschwindigkeit gegen die Fähigkeit, langfristige Stärken neu zu organisieren.</h2>
+          <div class="twocol">
+            <div class="panel">
+              <div class="label">VC-Modell</div>
+              <h3>Kapitalisierte Geschwindigkeit</h3>
+              <ul><li>Kapital</li><li>Geschwindigkeit</li><li>Skalierung</li><li>Risikobereitschaft</li><li>Plattformlogik</li></ul>
+            </div>
+            <div class="panel">
+              <div class="label">Eigentümermodell</div>
+              <h3>Kontrollierte Langfristigkeit</h3>
+              <ul><li>Unabhängigkeit</li><li>Langfristigkeit</li><li>Vertrauen</li><li>Souveränität</li><li>industrielle Tiefe</li></ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="dark">
+        <div class="wrap grid">
+          <div class="label">Die überraschende Beobachtung</div>
+          <div>
+            <h2>Die eigentliche Gefahr liegt nicht in besserer KI.</h2>
+            <p>Die Gefahr besteht darin, dass Führungs- und Eigentümerstrukturen nicht schnell genug weiterentwickelt werden, während Markt, Technologie und Wettbewerb ihre Anforderungen verändern.</p>
+            <div class="figure"><img src="./02_control_layers_the_stack_architecture.png?v=restore-20260605" alt="Abstraktes Schichtenmodell von Marktphase, Technologie und Führungsfähigkeit" /></div>
+            <blockquote>Die entscheidende Frage lautet nicht, ob ein Unternehmen KI nutzt. Die entscheidende Frage lautet, ob seine Führungs- und Eigentümerstrukturen dafür sorgen, dass es auch unter neuen Bedingungen handlungsfähig bleibt.</blockquote>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap">
+          <div class="grid">
+            <div class="label">Der Eigentümer-Stresstest</div>
+            <h2>Acht Fragestellungen, die sich aus unserer Betrachtung von Rohde &amp; Schwarz ergeben haben.</h2>
+          </div>
+          <div class="figure"><img src="./03_control_layers_the_core_owner_control.png?v=restore-20260605" alt="Zentrales Kontrollmodul als Symbol langfristiger Eigentümerkontrolle" /></div>
+          <div class="cards">
+            <div class="card"><h3>Führung</h3><p>Klare Entscheidungsrechte für Zukunftsfragen.</p></div>
+            <div class="card"><h3>Governance</h3><p>Strukturen, die Souveränität und Geschwindigkeit gleichzeitig ermöglichen.</p></div>
+            <div class="card"><h3>Talent</h3><p>Zugang zu Profilen, die Technologie, Markt und Führungsverantwortung verbinden.</p></div>
+            <div class="card"><h3>Nachfolgefähigkeit</h3><p>Übergänge so gestalten, dass Eigentümerwille und Zukunftsfähigkeit zusammenfinden.</p></div>
+            <div class="card"><h3>Innovationsgeschwindigkeit</h3><p>Experimente ohne Verlust industrieller Verlässlichkeit.</p></div>
+            <div class="card"><h3>KI-Fähigkeit</h3><p>KI als strategische Systemschicht.</p></div>
+            <div class="card"><h3>Kapital</h3><p>Kapitalallokation für Software, Daten und Integration.</p></div>
+            <div class="card"><h3>Ökosystem</h3><p>Kontrolle über Partner, Schnittstellen und Regeln.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap grid">
+          <div>
+            <div class="label">Vollständige Analyse erhalten</div>
+            <h2>Aus Sicht von Eigentümern, Beiräten und Geschäftsführungen.</h2>
+            <p>Rohde &amp; Schwarz dient als konkreter Referenzfall. Die Analyse fragt nicht, wie sich der Defence-Markt technisch entwickelt, sondern welche Führungs-, Governance- und Nachfolgefähigkeiten familiengeführte Technologieunternehmen jetzt stärken müssen.</p>
+            <div class="figure analysis-cover"><img class="cover-img" src="./04_control_layers_the_question_editorial_cover.png?v=restore-20260605" alt="Editorial-Cover der AvS Advisors Analyse" /></div>
+            <a class="analysis-cta" href="mailto:a.borcke@avs-advisors.com">
+              <span class="eyebrow">Vertrauliches Briefing</span>
+              <strong>Vollständige Analyse erhalten</strong>
+              <span class="hint">Als Ausgangspunkt für einen Austausch über Führung, Governance, Nachfolge und die langfristige Zukunftsfähigkeit familiengeführter Technologieunternehmen.</span>
+            </a>
+          </div>
+          <div>
+            <div class="label">Auszug: fünf Fragen an Eigentümer</div>
+            <div class="question"><span>01</span><span>Welche Führungsfähigkeiten müssen wir aufbauen, bevor neue Marktbedingungen sie erzwingen?</span></div>
+            <div class="question"><span>02</span><span>Wie muss Governance gestaltet sein, damit Geschwindigkeit und Eigentümerkontrolle zusammenwirken?</span></div>
+            <div class="question"><span>03</span><span>Welche Rollen im Beirat und Top-Management werden in der nächsten Phase entscheidend?</span></div>
+            <div class="question"><span>04</span><span>Welche Talente fehlen uns nicht operativ, sondern strategisch?</span></div>
+            <div class="question"><span>05</span><span>Wie bleibt Nachfolgefähigkeit auch unter höherem Innovationsdruck eine Stärke?</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap grid">
+            <div class="label">Warum wir diese Frage stellen</div>
+          <div>
+            <h2>AvS Advisors begleitet Eigentümer, Familienunternehmen, Beiräte und Top-Management bei Führungs-, Nachfolge- und Governance-Fragen.</h2>
+            <p>Die Analyse entstand aus der Beschäftigung mit Rohde &amp; Schwarz, adressiert jedoch eine Fragestellung, die weit über den Defence-Markt hinausgeht und für viele familiengeführte Technologieunternehmen relevant werden könnte.</p>
+            <div class="section-actions">
+              <a class="primary-action" href="mailto:a.borcke@avs-advisors.com">Vertrauliches Gespräch vereinbaren</a>
+              <a class="secondary-action" href="mailto:a.borcke@avs-advisors.com">Vollständige Analyse erhalten</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+    <footer>
+      <div class="wrap grid">
+        <div>
+          <strong>AvS Advisors</strong>
+          <p>Executive &amp; Board Search • Succession • Corporate &amp; Family Governance</p>
+        </div>
+        <address style="font-style: normal;">
+          <strong>Antonius von Borcke</strong><br />
+          Frankfurt | Munich | Berlin | Hamburg | Geneva | Zurich | Paris | London | Singapore | Hong Kong | Bogotá<br /><br />
+          Ballindamm 37 | 20095 Hamburg | Germany<br />
+          Phone +49 (178) 6984626<br />
+          <a href="mailto:a.borcke@avs-advisors.com">a.borcke@avs-advisors.com</a><br />
+          <a href="https://www.avs-advisors.com">www.avs-advisors.com</a>
+        </address>
+      </div>
+    </footer>
+  </body>
+</html>
